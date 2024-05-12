@@ -11,10 +11,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post("/generate", async (req, res) => {
-  const { preferences, budget, numTravelers, month } = req.body;
+  const { preferences, budget, numTravelers, numDays, month } = req.body;
 
   try {
-    const data = await fetchData(preferences, budget, numTravelers, month);
+    const data = await fetchData(preferences, budget, numTravelers, numDays, month);
     if (data) {
       res.send({ data });
     }
